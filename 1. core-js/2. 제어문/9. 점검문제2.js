@@ -17,6 +17,12 @@ let secret = Math.floor(Math.random() * 100) + 1;
 // 입력 최소, 최대값
 let min = 1, max = 100;
 
+// 초기 카운트 수
+let initCount = 5;
+
+// 카운트다운 변수
+let countdown = initCount;
+
 while (true) {
 
   // 사용자의 정답 입력값
@@ -29,10 +35,12 @@ while (true) {
     continue;
   }
 
+  countdown--; // 카운트 감소
+
   // 업 다운 판단
   // 정답인 경우
   if (secret === answer) {
-    alert(`정답입니다!`);
+    alert(`정답입니다! ${initCount - countdown}번만에 맞췄습니다!`); // 게임종료 조건 1
     break;
   } else if (secret > answer) {
     alert(`UP!!`);
@@ -41,6 +49,15 @@ while (true) {
     alert(`DOWN!!`);
     max = answer - 1;
   }
-}
+
+  // 추가 게임 종료 조건
+  if (countdown === 0) {
+    alert(`ㅠㅠ 패배하셨습니다! 정답은 ${secret}였지롱 ㅋㅋ`);
+    break;
+  } else {
+    alert(`${countdown}번의 기회가 남았습니다.`);
+  }
+
+} // end while loop
 
 alert(`수고하셨습니다!`);
