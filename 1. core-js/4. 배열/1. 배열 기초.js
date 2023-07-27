@@ -12,6 +12,8 @@ console.log(`마지막 데이터: ${numbers[numbers.length-1]}`);
 let foods = ['오렌지', '짬뽕', '포도', '라임', '레몬'];
 console.log('===================');
 console.log(foods);
+
+
 // 배열 요소(element) 수정
 foods[1] = '파인애플';
 console.log(foods);
