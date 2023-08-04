@@ -24,6 +24,26 @@ const p2 = new Product(
 );
 // console.log(p2);
 
+
+// 화면 가장 상단부에 들어갈 장바구니 총액 정보 태그 생성 클래스
+class ShoppingCart {
+  constructor() {
+    // 장바구니에 담은 Product들을 저장
+    this.cartItems = [];
+  }
+
+  render() {
+    const $cart = document.createElement('section');
+    $cart.classList.add('cart');
+    $cart.innerHTML = `
+      <h2>총액 0원</h2>
+      <button>주문하기</button>
+    `;
+    return $cart;
+  }
+}
+
+
 // 한개의 LI태그를 생성하는 컴포넌트 클래스 설계
 class ProductItem {
   constructor(product) {
@@ -88,7 +108,6 @@ class ProductList {
 
   render() {
     // console.log('render!!', this);
-    const $app = document.getElementById("app");
     const $prodList = document.createElement("ul");
     $prodList.classList.add("product-list");
     this.products.forEach((prod) => {
@@ -96,10 +115,23 @@ class ProductList {
       // console.log(productItem);
       $prodList.appendChild(productItem.render());
     });
-    $app.appendChild($prodList);
+    return $prodList;
+  }
+}
+
+// ShoppingCart와 ProductList를 합쳐서 렌더링처리하는 클래스
+class Shop {
+  constructor() {
+    this.render();
+  }
+
+  render() {
+    const $app = document.getElementById('app');
+    $app.appendChild(new ShoppingCart().render());
+    $app.appendChild(new ProductList().render());
   }
 }
 
 // 렌더링 명령
-const productList = new ProductList();
-productList.render();
+new Shop();
+
