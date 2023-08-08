@@ -2,9 +2,8 @@
 const $postUl = document.querySelector(".posts");
 
 // form 태그
-const $addForm = document.querySelector('#new-post form');
+const $addForm = document.querySelector("#new-post form");
 // console.log($addForm);
-
 
 // 서버에서 게시물들을 가져와서 화면에 렌더링
 const fetchGetPosts = () => {
@@ -54,45 +53,42 @@ const fetchGetPosts = () => {
   };
 };
 
-
 fetchGetPosts();
 
-const fetchNewPost = (e) => {
-  e.preventDefault(); // form의 새로고침 기능 중단
+const fetchNewPost = () => {
   // console.log('form이 제출됨!');
 
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:8383/posts');
+  xhr.open("POST", "http://localhost:8383/posts");
 
   const payload = JSON.stringify({
-    title: document.getElementById('title').value,
-    body: document.getElementById('content').value
+    title: document.getElementById("title").value,
+    body: document.getElementById("content").value,
   });
 
-  xhr.setRequestHeader('content-type', 'application/json');
+  xhr.setRequestHeader("content-type", "application/json");
   xhr.send(payload);
 
   // 응답 상황 처리
-  xhr.onload = e => {
-    if(xhr.status === 200 || xhr.status === 201) {
-      alert('게시물 등록 성공!');
+  xhr.onload = (e) => {
+    if (xhr.status === 200 || xhr.status === 201) {
+      alert("게시물 등록 성공!");
     } else {
-      alert('게시물 등록 실패');
+      alert("게시물 등록 실패");
     }
   };
-
 };
 
 // 폼태그 전송 이벤트 등록
-$addForm.addEventListener('submit', fetchNewPost);
+$addForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetchNewPost();
+});
 
-
-
-document.getElementById('go-link').addEventListener('click', e => {
-
-  const flag = confirm('진짜 이동합니까?');
+document.getElementById("go-link").addEventListener("click", (e) => {
+  const flag = confirm("진짜 이동합니까?");
   if (!flag) {
-    console.log('넌 못가~');
+    console.log("넌 못가~");
     e.preventDefault(); // 태그의 기본 기능을 없앰
     // 기본 기능: a -> 링크이동 기능
     //            checkbox -> 체크기능
