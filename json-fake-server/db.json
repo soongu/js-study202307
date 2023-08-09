@@ -25,16 +25,16 @@
   "todos": [
     {
       "text": "저녁 장보기",
-      "done": true,
+      "done": false,
       "id": 2
     },
     {
-      "text": "자바스크립트 복습하기",
+      "text": "자바스크립트 복습 안하기",
       "done": false,
       "id": 3
     },
     {
-      "text": "하하하",
+      "text": "후후후ㅌㅌㅌ",
       "done": false,
       "id": 4
     }

@@ -108,6 +108,49 @@ const checkTodoHandler = e => {
 
 $todoList.addEventListener('change', checkTodoHandler);
 
+
+// step5. 할일 수정 처리
+
+// 수정 모드 진입하는 함수
+const enterModifyMode = ($undo) => {
+  // 클래스 이름을 변경하여 아이콘을 바꾸자
+  // -> 클릭한 span태그 노드를 가져와야 함.
+  $undo.classList.replace('lnr-undo', 'lnr-checkmark-circle');
+
+  // $undo근처에 있는 span.text를 가져와야 함.
+  const $textSpan = $undo.closest('.todo-list-item').querySelector('.text');
+  
+  // 교체할 input을 생성
+  const $modInput = document.createElement('input');
+  $modInput.classList.add('modify-input');
+  $modInput.setAttribute('type', 'text');
+  $modInput.value = $textSpan.textContent;
+
+  // span을 input으로 교체하기
+  const $label = $textSpan.parentNode;
+  $label.replaceChild($modInput, $textSpan);
+};
+
+const modifyTodo = ($checkMark) => {
+  const $li = $checkMark.closest('.todo-list-item');
+  const id = $li.dataset.id;
+  const newText = $li.querySelector('.modify-input').value;
+  
+  fetchTodos(`${URL}/${id}`, 'PATCH', {
+    text: newText
+  });
+};
+
+// 수정 이벤트 처리 핸들러
+const modifyTodoHandler = e => {
+  if (e.target.matches('.modify span.lnr-undo')) {
+    enterModifyMode(e.target); // 수정 모드 진입하기
+  } else if (e.target.matches('.modify span.lnr-checkmark-circle')) {
+    modifyTodo(e.target); // 서버에 수정 요청 보내기
+  }
+};
+$todoList.addEventListener('click', modifyTodoHandler);
+
 // =========== 앱 실행 =========== //
 const init = () => {
   fetchTodos(URL)
