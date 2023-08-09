@@ -22,26 +22,5 @@
     }
   ],
   "followers": [],
-  "todos": [
-    {
-      "id": 1,
-      "text": "저녁 요리하기",
-      "done": false
-    },
-    {
-      "id": 2,
-      "text": "뉴스 기사 보기",
-      "done": true
-    },
-    {
-      "id": 3,
-      "text": "자바스크립트 공부하기",
-      "done": false
-    },
-    {
-      "text": "맛밥 먹긔",
-      "done": false,
-      "id": 4
-    }
-  ]
+  "todos": []
 }
