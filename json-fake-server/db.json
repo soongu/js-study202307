@@ -22,5 +22,21 @@
     }
   ],
   "followers": [],
-  "todos": []
+  "todos": [
+    {
+      "text": "저녁 장보기",
+      "done": true,
+      "id": 2
+    },
+    {
+      "text": "자바스크립트 복습하기",
+      "done": false,
+      "id": 3
+    },
+    {
+      "text": "하하하",
+      "done": false,
+      "id": 4
+    }
+  ]
 }
