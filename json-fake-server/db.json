@@ -25,13 +25,13 @@
   "todos": [
     {
       "text": "리액트공부",
-      "done": true,
+      "done": false,
       "id": 1
     },
     {
-      "text": "qpqpqp",
+      "text": "dfsd",
       "done": true,
-      "id": 4
+      "id": 5
     }
   ]
 }
