@@ -24,18 +24,13 @@
   "followers": [],
   "todos": [
     {
-      "text": "저녁 장보기",
-      "done": false,
-      "id": 2
+      "text": "리액트공부",
+      "done": true,
+      "id": 1
     },
     {
-      "text": "자바스크립트 복습 안하기",
-      "done": false,
-      "id": 3
-    },
-    {
-      "text": "후후후ㅌㅌㅌ",
-      "done": false,
+      "text": "qpqpqp",
+      "done": true,
       "id": 4
     }
   ]
