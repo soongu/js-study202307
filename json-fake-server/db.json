@@ -1,0 +1,37 @@
+{
+  "posts": [
+    {
+      "title": "냐냐냥",
+      "body": "룰룰루",
+      "id": 4
+    },
+    {
+      "title": "등록등록",
+      "body": "키키키키",
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userName": "김철수"
+    },
+    {
+      "id": 2,
+      "userName": "뽀로로"
+    }
+  ],
+  "followers": [],
+  "todos": [
+    {
+      "text": "리액트공부",
+      "done": false,
+      "id": 1
+    },
+    {
+      "text": "dfsd",
+      "done": true,
+      "id": 5
+    }
+  ]
+}
