@@ -1,4 +1,3 @@
-
 import { $btn } from './getDOM.js';
 import ABC, { clickHandler as ch } from './event.js';
 
@@ -7,7 +6,7 @@ const init = () => {
   $btn.addEventListener('click', ch);
 
   const dog = new ABC('초코', 3);
-  dog.info();
+  // dog.info();
 };
 
 init();
